@@ -72,7 +72,7 @@ The access logs recorded a high-volume flood of POST requests to `/login.php` fr
 The attacker was now inside the application.
 
 #### 📸 Screenshot 2 — 302 Redirect Confirms Successful Brute-Force
-<img width="1366" height="728" alt="Brute Force 302 Redirect" src="https://github.com/ugbomakyrian5-web/detecting-web-attacks/blob/main/screenshots/2_brute_force_login_302_redirect.png" />
+![image alt](https://github.com/ugbomakyrian5-web/Web-Attack-Detection-SOC/blob/4ad1aeda425863f0a3adf6d7be408ce18eb8302b/screenshots/%5B2%5D%20%20302%20Redirect%20Confirms%20Successful%20Brute-Force.png)
 
 *High-volume POST requests to /login.php — single 302 response among hundreds of 403 failures confirms credential compromise*
 
@@ -90,12 +90,11 @@ Post-authentication, the attacker targeted the `/changeusername.php` form using 
 `%' OR '1'='1` is a classic boolean-based SQLi payload — by injecting a condition that always evaluates as true, the attacker forced the backend SQL query to return all records, effectively dumping the users table and exposing every account in the database.
 
 #### 📸 Screenshot 3a — sqlmap User-Agent and Encoded SQLi Payload in Access Log
-<img width="1366" height="728" alt="SQLi Payload in Access Log" src="https://github.com/ugbomakyrian5-web/detecting-web-attacks/blob/main/screenshots/3_sqli_encoded_payload_access_log.png" />
-
+![image alt](https://github.com/ugbomakyrian5-web/Web-Attack-Detection-SOC/blob/4ad1aeda425863f0a3adf6d7be408ce18eb8302b/screenshots/%5B3%5D%20%20sqlmap%20User-Agent%20and%20Encoded%20SQLi%20Payload%20in%20Access%20Log.png)
 *GET /changeusername.php — URL-encoded SQLi payload and sqlmap/stable User-Agent confirm automated injection attempt*
 
 #### 📸 Screenshot 3b — CyberChef URL Decode Reveals Plaintext SQLi Payload
-<img width="1366" height="728" alt="CyberChef URL Decode" src="https://github.com/ugbomakyrian5-web/detecting-web-attacks/blob/main/screenshots/3b_cyberchef_url_decode_sqli_payload.png" />
+![image alt](https://github.com/ugbomakyrian5-web/Web-Attack-Detection-SOC/blob/4ad1aeda425863f0a3adf6d7be408ce18eb8302b/screenshots/%5B3%5D%20%20CyberChef%20URL%20Decode%20Reveals%20Plaintext%20SQLi%20Payload.png)
 
 *CyberChef URL Decode — %25%27+OR+%271%27%3D%271 decodes to %' OR '1'='1*
 
@@ -132,12 +131,12 @@ The response returned the complete users table in plaintext:
 The flag `THM{dumped_the_db}` embedded in the database confirms successful exfiltration of the entire users table — the breach is fully corroborated.
 
 #### 📸 Screenshot 4 — Wireshark Exposes Credentials in POST Body
-<img width="1366" height="728" alt="Wireshark POST Body Credentials" src="https://github.com/ugbomakyrian5-web/detecting-web-attacks/blob/main/screenshots/4_wireshark_brute_force_credentials.png" />
+![image alt](https://github.com/ugbomakyrian5-web/Web-Attack-Detection-SOC/blob/4ad1aeda425863f0a3adf6d7be408ce18eb8302b/screenshots/%5B4%5D%20%20Wireshark%20Exposes%20Credentials%20in%20POST%20Body.png)
 
 *Packet 316 — HTTP POST body reveals username=admin, password=astrongpassword123 — credentials invisible in access logs alone*
 
 #### 📸 Screenshot 5 — HTTP Stream Confirms Database Dump and Flag Recovery
-<img width="1366" height="728" alt="SQLi Database Dump and Flag" src="https://github.com/ugbomakyrian5-web/detecting-web-attacks/blob/main/screenshots/5_wireshark_sqli_database_dump_flag.png" />
+![image alt](https://github.com/ugbomakyrian5-web/Web-Attack-Detection-SOC/blob/4ad1aeda425863f0a3adf6d7be408ce18eb8302b/screenshots/%5B5%5D%20%20HTTP%20Stream%20Confirms%20Database%20Dump%20and%20Flag%20Recovery.png)
 
 *Wireshark Follow HTTP Stream (tcp.stream eq 44) — SQLi response exposes full users table and confirms THM{dumped_the_db} flag — direct evidence of data exfiltration*
 
