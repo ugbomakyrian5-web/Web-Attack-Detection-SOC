@@ -55,7 +55,7 @@ Access logs showed a burst of GET requests across multiple paths within a single
 The attacker now had a clear map of the application's attack surface. `/login.php` became the next target.
 
 #### 📸 Screenshot 1 — FFUF v2.1.0 User-Agent Confirmed in Access Logs
-<img width="1366" height="728" alt="FFUF Directory Fuzz Detection" src="https://github.com/ugbomakyrian5-web/detecting-web-attacks/blob/main/screenshots/1_directory_fuzz_ffuf_useragent.png" />
+![image alt](https://github.com/ugbomakyrian5-web/Web-Attack-Detection-SOC/blob/1f61558b3cc9ff7a62fc5ad6cd16305f9a21c6cc/screenshots/%5B1%5D%20%20FFUF%20v2.1.0%20User-Agent%20Confirmed%20in%20Access%20Logs.png)
 
 *Burst of GET requests from 192.168.1.10 with FFUF v2.1.0 User-Agent — 200 responses mark valid endpoints*
 
